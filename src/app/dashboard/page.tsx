@@ -18,6 +18,7 @@ export default function DashBoardPage() {
     const [users, setUsers] = useState<UserType[]>([]);
     const [recentUsers, setRecentUsers] = useState<UserType[]>([]);
     const [recentPosts, setRecentPosts] = useState<PostType[]>([]);
+    const currentUser = useSession();
 
     async function getAllPosts() {
         try {
@@ -67,7 +68,6 @@ export default function DashBoardPage() {
         getAllUsers();
     }, []);
 
-    const currentUser = useSession();
     if (currentUser.data?.user.role !== "admin") router.push("/");
 
     return (
