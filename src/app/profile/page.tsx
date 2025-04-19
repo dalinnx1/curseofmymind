@@ -56,6 +56,7 @@ export default function ProfilePage() {
     }
 
     if (!data?.user) redirect("/sign-in");
+    console.log(data?.user)
 
     return (
         <div className="flex flex-col md:flex-row min-h-screen">
