@@ -121,19 +121,19 @@ export default function ProfilePage() {
                         {data?.user.provider !== "google" && (
                             <>
                                 <Input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Email"
-                                className="bg-white dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"
-                            />
-                            <Input
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Password"
-                                className="bg-white dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"
-                            />
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="Email"
+                                    className="bg-white dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"
+                                />
+                                <Input
+                                    type="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder="Password"
+                                    className="bg-white dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"
+                                />
                             </>
                     )}
                         <Button
