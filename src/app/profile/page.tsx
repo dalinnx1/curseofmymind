@@ -20,7 +20,7 @@ export default function ProfilePage() {
     const [password, setPassword] = useState("");
     const [showAlert, setShowAlert] = useState(false);
     const [imageUrl, setImageUrl] = useState("");
-
+    console.log(username);
     async function handleProfileDelete() {
         try {
             await deleteUser(data?.user.id ?? "");
@@ -33,7 +33,7 @@ export default function ProfilePage() {
 
     async function handleUpdate(e: React.FormEvent) {
         e.preventDefault();
-        if (username !== data?.user?.username || email !== data?.user.email) {
+        if (username === data?.user?.username && email === data?.user?.email) {
             setShowAlert(true);
             return;
         }
@@ -50,9 +50,7 @@ export default function ProfilePage() {
             console.error("Failed to update profile:", error);
         }
     }
-
     if (!data?.user) redirect("/sign-in");
-
     return (
         <div className="flex flex-col md:flex-row min-h-screen">
             <div className="w-full md:w-60 border-gray-200 p-4 space-y-4">
