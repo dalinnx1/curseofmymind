@@ -127,6 +127,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                         isVerified: true,
                     });
                     await newUser.save();
+                }else {
+                    // Kullanıcı zaten varsa, mevcut bilgilerini güncelle
+                    user.id = existingUser._id.toString();
+                    user.username = existingUser.username;
+                    user.role = existingUser.role;
+                    user.isVerified = existingUser.isVerified;
+                    user.avatar = existingUser.avatar || user.image;
+                    user.provider = existingUser.provider;
                 }
             }
             return true;
