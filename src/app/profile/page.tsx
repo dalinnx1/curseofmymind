@@ -33,10 +33,7 @@ export default function ProfilePage() {
 
     async function handleUpdate(e: React.FormEvent) {
         e.preventDefault();
-        if (
-            username !== data?.user?.username ||
-            email !== data?.user.email ||
-        ) {
+        if (username !== data?.user?.username || email !== data?.user.email) {
             setShowAlert(true);
             return;
         }
@@ -130,12 +127,14 @@ export default function ProfilePage() {
                                 <Input
                                     type="password"
                                     value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
                                     placeholder="Password"
                                     className="bg-white dark:bg-gray-800 dark:text-gray-100 dark:border-gray-700"
                                 />
                             </>
-                    )}
+                        )}
                         <Button
                             type="submit"
                             className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 dark:bg-gray-200 dark:hover:bg-gray-300 dark:text-gray-800"
