@@ -34,9 +34,8 @@ export default function ProfilePage() {
     async function handleUpdate(e: React.FormEvent) {
         e.preventDefault();
         if (
-            username === data?.user?.username &&
-            email === data?.user.email &&
-            !password
+            username !== data?.user?.username ||
+            email !== data?.user.email ||
         ) {
             setShowAlert(true);
             return;
