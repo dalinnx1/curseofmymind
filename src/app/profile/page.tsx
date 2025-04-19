@@ -55,7 +55,7 @@ export default function ProfilePage() {
         }
     }
 
-    if (!data?.user.username) return redirect("/sign-in");
+    if (!data?.user) return redirect("/sign-in");
 
     return (
         <div className="flex flex-col md:flex-row min-h-screen">
