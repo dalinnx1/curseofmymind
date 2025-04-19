@@ -10,6 +10,7 @@ import { UserTable } from "@/components/UserTable";
 import { DashboardStats } from "@/components/DashBoardStats";
 import { fetchAllUsers, fetchRecentUsers } from "@/actions/UserAction";
 import { UserType } from "@/models/UserModel";
+import { useSession } from "next-auth/react";
 
 export default function DashBoardPage() {
     const router = useRouter();
@@ -65,6 +66,9 @@ export default function DashBoardPage() {
         getAllPosts();
         getAllUsers();
     }, []);
+
+    const currentUser = useSession();
+    if (currentUser.data?.user.role !== "admin") router.push("/");
 
     return (
         <div className="container mx-auto p-4">

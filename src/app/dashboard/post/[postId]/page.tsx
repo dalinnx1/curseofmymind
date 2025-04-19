@@ -15,12 +15,14 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import ImageUpload from "@/components/ImageUpload";
+import { useRouter } from "next/navigation";
 
 export default function CreatePostPage({
     params: paramsPromise,
 }: {
     params: Promise<{ postId: string }>;
 }) {
+    const router = useRouter();
     const params = React.use(paramsPromise);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -112,6 +114,9 @@ export default function CreatePostPage({
                 </Link>
             </div>
         );
+
+    const currentUser = useSession();
+    if (currentUser.data?.user.role !== "admin") router.push("/");
 
     return (
         <div className="p-3 max-w-3xl mx-auto min-h-screen">
